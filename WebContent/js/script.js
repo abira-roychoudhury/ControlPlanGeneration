@@ -104,7 +104,7 @@ $("#submit").click
     	$.ajax
         (
             {
-                url:'/AutoDraw/SelectionOCR',
+                url:'/ControlPlanGeneration/SelectionOCR',
                 data: {"croppedImageBase64":croppedImageBase64},
                 type:'post',
                 success:function(data){
@@ -133,7 +133,11 @@ $("#excel").click
     {  	
     	var partno = $('#partno').val();
     	var partname = $('#partname').val();
-    	var processname = $('#processname').val(); 	
+    	var processname = $('#processname').val(); 
+    	var usl = $('#usl').val();
+    	var mid = $('#mid').val();
+    	var lsl = $('#lsl').val();
+    	var density = $('#density').val();
     	
     	$('#excelLabel').text("");
     	$("#submitLoader").show();
@@ -143,8 +147,8 @@ $("#excel").click
     	$.ajax
         (
             {
-                url:'/AutoDraw/PushToExcel',
-                data: {"partno":partno, "partname":partname, "processname":processname},
+                url:'/ControlPlanGeneration/PushToExcel',
+                data: {"partno":partno, "partname":partname, "processname":processname, "usl":usl, "mid":mid, "lsl":lsl, "density":density},
                 type:'post',
                 success:function(data){
                 	console.log(data);

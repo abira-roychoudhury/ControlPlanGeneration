@@ -19,7 +19,7 @@ public class DocumentTemplating {
 		{
 			//partno extraction
 			if(splitDesc[i].contains("porite") && partno==0){
-				displayDocument.put("Part No", "I"+splitDesc[i].substring(7));
+				displayDocument.put("Part No", "I"+splitDesc[i].substring(8));
 				partno++;
 			}
 			

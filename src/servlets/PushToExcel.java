@@ -58,6 +58,13 @@ public class PushToExcel extends HttpServlet {
 		String partno = request.getParameter("partno");
 		String partname = request.getParameter("partname");
 		String processname = request.getParameter("processname");
+		System.out.println("hello");
+		String usl = request.getParameter("usl");
+		String mid = request.getParameter("mid");
+		String lsl = request.getParameter("lsl");
+		String density = request.getParameter("density");
+		
+		System.out.println(usl + " value "+mid);
 				
 		//String excelFilePath = "C:/eclipse-jee-luna-R-win32-x86_64/eclipse/ControlPlanDemo.xlsx";
 		String excelFilePath = "C:/eclipse-jee-luna-R-win32-x86_64/eclipse/ControlDemo.xlsx";
@@ -78,9 +85,32 @@ public class PushToExcel extends HttpServlet {
             String partName = cellPartName.getStringCellValue();
             cellPartName.setCellValue(partName+" "+partname);
             
+            
+            Row compactionRow = sheet.createRow(8);
            // Cell cellProcessName= sheet.getRow(9).createCell(1);
-            Cell cellProcessName= sheet.createRow(9).createCell(1);
+            Cell cellProcessName= compactionRow.createCell(1);
             cellProcessName.setCellValue(processname);    
+            
+            Cell cellWeightNo = compactionRow.createCell(3);
+            cellWeightNo.setCellValue("1");
+            
+            Cell cellWeight = compactionRow.createCell(4);
+            cellWeight.setCellValue("Weight");
+            
+            Cell cellWeightUsl = compactionRow.createCell(7);
+            cellWeightUsl.setCellValue("USL : "+usl);
+            
+            Cell cellWeightMid = sheet.createRow(9).createCell(7);
+            cellWeightMid.setCellValue("MID : "+mid);
+            
+            Cell cellWeightLsl = sheet.createRow(10).createCell(7);
+            cellWeightLsl.setCellValue("LSL : "+lsl);
+            
+            Cell cellDensity = sheet.createRow(11).createCell(4);
+            cellDensity.setCellValue("Density");
+            
+            Cell cellDensityValue = sheet.getRow(11).createCell(7);
+            cellDensityValue.setCellValue(density);
             
             inputStream.close();
             

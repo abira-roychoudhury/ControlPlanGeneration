@@ -97,36 +97,33 @@
 						</div>	
 					</div>
 					
-					<fieldset>
-						<legend>Weight</legend>
-						
+																	
 						<div class = "form-group form-horizontal">
-							<label class="control-label col-sm-2" for = "partname">USL </label>  
+							<label class="control-label col-sm-2" for = "usl"> Weight USL </label>  
 							<div class="col-sm-10">
-								<input class="form-control" type = "text" id="partname" value ="${displayDocument['USL']}">
+								<input class="form-control" type = "text" id="usl" value ="${displayDocument['USL']}">
 							</div>	
 						</div>	
 						
 						<div class = "form-group form-horizontal">
-							<label class="control-label col-sm-2" for = "partname">MID </label>  
+							<label class="control-label col-sm-2" for = "mid"> Weight MID </label>  
 							<div class="col-sm-10">
-								<input class="form-control" type = "text" id="partname" value ="${displayDocument['MID']}">
+								<input class="form-control" type = "text" id="mid" value ="${displayDocument['MID']}">
 							</div>	
 						</div>	
 						
 						<div class = "form-group form-horizontal">
-							<label class="control-label col-sm-2" for = "partname">LSL </label>  
+							<label class="control-label col-sm-2" for = "lsl"> Weight LSL </label>  
 							<div class="col-sm-10">
-								<input class="form-control" type = "text" id="partname" value ="${displayDocument['LSL']}">
+								<input class="form-control" type = "text" id="lsl" value ="${displayDocument['LSL']}">
 							</div>	
-						</div>	
-					
-					</fieldset>
+						</div>						
+				
 					
 					<div class = "form-group form-horizontal">
-						<label class="control-label col-sm-2" for = "partname">Density </label>  
+						<label class="control-label col-sm-2" for = "density">Density </label>  
 						<div class="col-sm-10">
-							<input class="form-control" type = "text" id="partname" value ="${displayDocument['density']}">
+							<input class="form-control" type = "text" id="density" value ="${displayDocument['density']}">
 						</div>	
 					</div>	
 										
