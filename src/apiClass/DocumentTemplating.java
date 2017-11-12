@@ -32,7 +32,7 @@ public class DocumentTemplating {
 			
 			//compacting burr control extraction
 			else if(splitDesc[i].contains("control") && splitDesc[i].contains("") && burr==0){
-				key = splitDesc[i].substring(0,splitDesc[i].indexOf(":"));
+				key = "burr";
 				value = splitDesc[i].substring(splitDesc[i].indexOf(":")+1);
 				displayDocument.put(key,value);
 				burr++;				

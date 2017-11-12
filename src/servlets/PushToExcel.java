@@ -58,11 +58,11 @@ public class PushToExcel extends HttpServlet {
 		String partno = request.getParameter("partno");
 		String partname = request.getParameter("partname");
 		String processname = request.getParameter("processname");
-		System.out.println("hello");
 		String usl = request.getParameter("usl");
 		String mid = request.getParameter("mid");
 		String lsl = request.getParameter("lsl");
 		String density = request.getParameter("density");
+        String burr = rquest.getParameter("burr");
 		
 		System.out.println(usl + " value "+mid);
 				
@@ -74,20 +74,17 @@ public class PushToExcel extends HttpServlet {
             XSSFWorkbook workbook = new XSSFWorkbook(inputStream);
 	        XSSFSheet sheet = workbook.getSheetAt(0);
             
-	        //Cell cellPartNo= sheet.getRow(2).getCell(0);
             Cell cellPartNo= sheet.getRow(2).getCell(0);
             String partNo = cellPartNo.getStringCellValue();
             System.out.println("partno text "+partNo);
             cellPartNo.setCellValue(partNo+" "+partno);
             
-            //Cell cellPartName= sheet.getRow(3).getCell(0);
            Cell cellPartName= sheet.getRow(3).getCell(0);
             String partName = cellPartName.getStringCellValue();
             cellPartName.setCellValue(partName+" "+partname);
             
             
             Row compactionRow = sheet.createRow(8);
-           // Cell cellProcessName= sheet.getRow(9).createCell(1);
             Cell cellProcessName= compactionRow.createCell(1);
             cellProcessName.setCellValue(processname);    
             
@@ -111,6 +108,15 @@ public class PushToExcel extends HttpServlet {
             
             Cell cellDensityValue = sheet.getRow(11).createCell(7);
             cellDensityValue.setCellValue(density);
+
+            Cell cellBurrNo = sheet.createRow(12).createCell(3);
+            cellBurrNo.setCellValue("2");
+
+            Cell cellBurr = sheet.getRow(12).createCell(4);
+            cellBurr.setCellValue("Compaction burr control");
+
+            Cell cellBurrValue = sheet.getRow(12).createCell(7);
+            cellBurrValue.setCellValue(burr);
             
             inputStream.close();
             

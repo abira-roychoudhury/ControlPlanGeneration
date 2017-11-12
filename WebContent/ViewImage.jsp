@@ -126,6 +126,14 @@
 							<input class="form-control" type = "text" id="density" value ="${displayDocument['density']}">
 						</div>	
 					</div>	
+
+
+					<div class = "form-group form-horizontal">
+						<label class="control-label col-sm-2" for = "burr">Compaction control burr </label>  
+						<div class="col-sm-10">
+							<input class="form-control" type = "text" id="burr" value ="${displayDocument['burr']}">
+						</div>	
+					</div>
 										
 				</div>
 				

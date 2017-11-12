@@ -138,6 +138,7 @@ $("#excel").click
     	var mid = $('#mid').val();
     	var lsl = $('#lsl').val();
     	var density = $('#density').val();
+        var burr = $('#burr').val();
     	
     	$('#excelLabel').text("");
     	$("#submitLoader").show();
@@ -148,7 +149,7 @@ $("#excel").click
         (
             {
                 url:'/ControlPlanGeneration/PushToExcel',
-                data: {"partno":partno, "partname":partname, "processname":processname, "usl":usl, "mid":mid, "lsl":lsl, "density":density},
+                data: {"partno":partno, "partname":partname, "processname":processname, "usl":usl, "mid":mid, "lsl":lsl, "density":density, "burr":burr},
                 type:'post',
                 success:function(data){
                 	console.log(data);
