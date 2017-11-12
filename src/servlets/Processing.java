@@ -27,6 +27,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import apiClass.DocumentTemplating;
+import apiClass.GetRequestTest;
 import apiClass.ImageEnhancement;
 import apiClass.TimestampLogging;
 import apiClass.VisionAPICall;
@@ -89,6 +90,16 @@ public class Processing extends HttpServlet {
 			ex.printStackTrace();
 		} 
 		System.out.println("imgFile "+imgFile);
+		
+		
+		//Calling Python API
+		//JSONObject bubbleData = GetRequestTest.pythonApiCall(imgFile.getAbsolutePath());
+		String bubbleDataString = "{'numberOfBubbles' : 7}";
+		JSONObject bubbleData = new JSONObject(bubbleDataString);
+		int numberOfBubbles = bubbleData.getInt("numberOfBubbles");
+		System.out.println("numberOfBubbles : "+numberOfBubbles);
+		
+		request.setAttribute("numberOfBubbles", numberOfBubbles);
 		
 		//uploading image completed logging upload image
 		timelogging.fileDesc(fileName, fileType);

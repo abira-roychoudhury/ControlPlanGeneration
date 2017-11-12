@@ -44,7 +44,7 @@ public class SelectionOCR extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String base64 = request.getParameter("croppedImageBase64");
 		System.out.println(base64.substring(22));
-		String textDetectionType = Constants.VisionRequest.documentTextDetection;
+		String textDetectionType = Constants.VisionRequest.textDetection;
 		JSONObject visionResponse = new VisionAPICall().performOCR(base64.substring(22), textDetectionType);		
 		String description = getDescription(visionResponse);		
 		response.getWriter().print(description);
@@ -60,15 +60,14 @@ public class SelectionOCR extends HttpServlet {
 			JSONObject textAnnotaionsDict=responsesArray.getJSONObject(0);
 			textAnnotationArray=(JSONArray)textAnnotaionsDict.getJSONArray(Constants.VisionResponse.textAnnotations);			
 			
-		} catch (Exception e) {		
-			e.printStackTrace();
-			return "Could not scan any value. Please try some different selection";
-		}
-		try {			  			
 			JSONObject firstObj=(JSONObject) textAnnotationArray.get(0);
 			String descriptionStr=firstObj.getString(Constants.VisionResponse.description);
-			descriptionStr = descriptionStr.replaceAll("[^\\x00-\\x7F]+", "");			
-			return descriptionStr;
+			descriptionStr = descriptionStr.replaceAll("[^\\x00-\\x7F]+", "");
+			
+			System.out.println("descriptionStr : "+descriptionStr);
+			String templatedDescription = descriptionStr.substring(0,4) +" "+ descriptionStr.substring(descriptionStr.length() - 5);
+			
+			return templatedDescription;
 		}catch (JSONException e) {
 			e.printStackTrace();
 			return "Could not scan any value. Please try some different selection";

@@ -22,6 +22,7 @@
 		var compressedDim = {"height" : <%=request.getAttribute("compressHeight")%>,
 							 "width" : <%=request.getAttribute("compressWidth")%>} 
 		var fileType = '<%=request.getAttribute("fileType")%>'
+		var numberOfBubbles = <%=request.getAttribute("numberOfBubbles")%>
 	</script>
 	
   
@@ -76,28 +77,32 @@
 				</div>
 				<div class="panel-body">
 				
-					<div class = "form-group form-horizontal">
-						<label class="control-label col-sm-2" for = "partno">Part No </label>  
-						<div class="col-sm-10">
-							<input class="form-control" type = "text" id="partno" value ="${displayDocument['Part No']}">
-						</div>	
-					</div>		
-					
-					<div class = "form-group form-horizontal">
-						<label class="control-label col-sm-2" for = "partname">Part Name </label>  
-						<div class="col-sm-10">
-							<input class="form-control" type = "text" id="partname" value ="${displayDocument['Part Name']}">
-						</div>	
-					</div>			
-					
-					<div class = "form-group form-horizontal">
-						<label class="control-label col-sm-2" for = "processname">Process Name </label>  
-						<div class="col-sm-10">
-							<input class="form-control" type = "text" id="processname" value ="${displayDocument['Process Name']}">
-						</div>	
+					<div id="block1">
+						<div class = "form-group form-horizontal">
+							<label class="control-label col-sm-2" for = "partno">Part No </label>  
+							<div class="col-sm-10">
+								<input class="form-control" type = "text" id="partno" value ="${displayDocument['Part No']}">
+							</div>	
+						</div>		
+						
+						<div class = "form-group form-horizontal">
+							<label class="control-label col-sm-2" for = "partname">Part Name </label>  
+							<div class="col-sm-10">
+								<input class="form-control" type = "text" id="partname" value ="${displayDocument['Part Name']}">
+							</div>	
+						</div>			
+						
+						<div class = "form-group form-horizontal">
+							<label class="control-label col-sm-2" for = "processname">Process Name </label>  
+							<div class="col-sm-10">
+								<input class="form-control" type = "text" id="processname" value ="${displayDocument['Process Name']}">
+							</div>	
+						</div>
+						
+						<button class="btn btn-primary" id="next1">Next</button>
 					</div>
 					
-																	
+					<div id="block2" style="display : none">											
 						<div class = "form-group form-horizontal">
 							<label class="control-label col-sm-2" for = "usl"> Weight USL </label>  
 							<div class="col-sm-10">
@@ -119,22 +124,42 @@
 							</div>	
 						</div>						
 				
-					
-					<div class = "form-group form-horizontal">
-						<label class="control-label col-sm-2" for = "density">Density </label>  
-						<div class="col-sm-10">
-							<input class="form-control" type = "text" id="density" value ="${displayDocument['density']}">
+						
+						<div class = "form-group form-horizontal">
+							<label class="control-label col-sm-2" for = "density">Density </label>  
+							<div class="col-sm-10">
+								<input class="form-control" type = "text" id="density" value ="${displayDocument['density']}">
+							</div>	
 						</div>	
-					</div>	
-
-
-					<div class = "form-group form-horizontal">
-						<label class="control-label col-sm-2" for = "burr">Compaction control burr </label>  
-						<div class="col-sm-10">
-							<input class="form-control" type = "text" id="burr" value ="${displayDocument['burr']}">
-						</div>	
+						
+						
+						<button class="btn btn-primary" id="next2">Next</button>
 					</div>
-										
+
+			
+					<div id="block3" style="display : none">
+						<div class = "form-group form-horizontal">
+							<label class="control-label col-sm-3" for = "burr">Compaction control burr </label>  
+							<div class="col-sm-9">
+								<input class="form-control" type = "text" id="burr" value ="${displayDocument['burr']}">
+							</div>	
+						</div>
+						
+						<button class="btn btn-primary" id="next3">Next</button>
+					</div>			
+					
+					<div id="block4" style="display : none">
+						<h4> Number of Bubbles found : <%=request.getAttribute("numberOfBubbles")%> </h4>
+						<div class = "form-group form-horizontal">
+							<label class="control-label col-sm-2">Value</label>  
+							<div class="col-sm-10">
+								<input class="form-control" type="text" id="bubbleValue" value ="">
+							</div>	
+						</div>
+						
+					</div>			
+					
+							
 				</div>
 				
 				<div class="panel-footer">

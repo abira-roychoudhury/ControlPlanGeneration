@@ -97,7 +97,7 @@ $("#submit").click
 (
     function()
     {
-    	textbox.val("");
+    	$('#bubbleValue').val("");
     	$("#submitLoader").show();
       	$('input, button, textarea').attr("disabled", true);
     	$(".container").addClass('haze');
@@ -109,7 +109,7 @@ $("#submit").click
                 type:'post',
                 success:function(data){
                 	console.log(data);
-                	textbox.val(data); 
+                	$('#bubbleValue').val(data); 
                 	$("#submitLoader").hide();
                 	$('input, button, textarea').attr("disabled", false);
                 	$('.container').removeClass('haze');
@@ -170,5 +170,20 @@ $("#excel").click
     }
 );
 
+
+$('#next1').click(function(){
+	$('#block1').hide();
+	$('#block2').show();
+});
+
+$('#next2').click(function(){
+	$('#block2').hide();
+	$('#block3').show();
+});
+
+$('#next3').click(function(){
+	$('#block3').hide();
+	$('#block4').show();
+});
 
 });
