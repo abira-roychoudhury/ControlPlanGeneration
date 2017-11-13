@@ -62,7 +62,8 @@ public class PushToExcel extends HttpServlet {
 		String mid = request.getParameter("mid");
 		String lsl = request.getParameter("lsl");
 		String density = request.getParameter("density");
-        String burr = rquest.getParameter("burr");
+        String burr = request.getParameter("burr");
+        String bubbleValue = request.getParameter("bubbleValue");
 		
 		System.out.println(usl + " value "+mid);
 				
@@ -117,6 +118,15 @@ public class PushToExcel extends HttpServlet {
 
             Cell cellBurrValue = sheet.getRow(12).createCell(7);
             cellBurrValue.setCellValue(burr);
+            
+            Cell cellBubbleNo = sheet.createRow(13).createCell(3);
+            cellBubbleNo.setCellValue("3");
+
+            Cell cellBubble = sheet.getRow(13).createCell(4);
+            cellBubble.setCellValue("Length");
+
+            Cell cellBubbleValue = sheet.getRow(13).createCell(7);
+            cellBubbleValue.setCellValue(bubbleValue);
             
             inputStream.close();
             
