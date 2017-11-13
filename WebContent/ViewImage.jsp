@@ -23,6 +23,7 @@
 							 "width" : <%=request.getAttribute("compressWidth")%>} 
 		var fileType = '<%=request.getAttribute("fileType")%>'
 		var numberOfBubbles = <%=request.getAttribute("numberOfBubbles")%>
+		var coordinatesOfBubbles = <%=request.getAttribute("coordinatesOfBubbles")%>
 	</script>
 	
   
@@ -163,7 +164,7 @@
 				</div>
 				
 				<div class="panel-footer">
-					<button type="button" id="excel" class="btn btn-primary">Excel</button>
+					<button type="button" id="excel" class="btn btn-primary">Save to Excel</button>
 					<label id = "excelLabel"></label>
 				</div>
 				

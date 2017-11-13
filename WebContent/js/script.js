@@ -40,6 +40,63 @@ function draw(base64) {
 draw(img);
 
 
+function drawPolyies(base64){
+	
+	console.log("inside polyies")
+	
+	var image = document.getElementById("image");
+	
+	var img = new Image();  
+	img.src = base64;
+	
+  	var canvas = document.createElement('canvas');
+  	
+	if (canvas.getContext) {
+		var ctx = canvas.getContext('2d');
+
+		img.onload = function() {
+	  	
+	    	canvas.height = img.height;
+	    	canvas.width = img.width;
+
+	    	owidth = (owidth - ox);
+			oheight = (oheight - oy);
+			
+	   		image.height = (image.width / img.width) * img.height;
+	    	
+		    ctx.drawImage(img, 0, 0, img.width, img.height)
+		  	//ctx.strokeRect(ox, oy, owidth, oheight);
+			ctx.strokeStyle="red";
+		    
+			ctx.lineWidth = (img.width / 500 ) * 0.5;
+			
+			
+			for(var i=0; i<7 ; i++){
+				
+				var coordinate = coordinatesOfBubbles[i];
+				console.log(coordinate);
+				var ox = coordinate.x1;
+				var oy = coordinate.y1;
+				var owidth = coordinate.x1 - coordinate.x2;
+				var oheight =  coordinate.y1 - coordinate.y2;
+				
+				ox = ((img.width/compressedDim.width) * ox) - ((img.width / 500 ));
+				oy = ((img.width/compressedDim.width) * oy) - ((img.width / 500 ));
+				owidth = ((img.width/compressedDim.width) * owidth) + ((img.width / 500 ) * 20);
+				oheight = ((img.width/compressedDim.width) * oheight) + ((img.width / 500 ) * 20);
+				
+		   		ctx.strokeRect(ox, oy, owidth,oheight);	
+		   		
+		   		console.log("drawing :"+ ox +","+ oy+","+ owidth+","+oheight  )
+			}
+		  	image.src = canvas.toDataURL();
+		  	
+	  	};
+		
+	}   
+   
+}
+
 
 function getSelection(image, selection) {
 	console.log("inside getSelection");
@@ -185,6 +242,8 @@ $('#next2').click(function(){
 $('#next3').click(function(){
 	$('#block3').hide();
 	$('#block4').show();
+	
+	drawPolyies(img);
 });
 
 });

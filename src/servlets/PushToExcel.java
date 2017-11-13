@@ -68,7 +68,7 @@ public class PushToExcel extends HttpServlet {
 		System.out.println(usl + " value "+mid);
 				
 		//String excelFilePath = "C:/eclipse-jee-luna-R-win32-x86_64/eclipse/ControlPlanDemo.xlsx";
-		String excelFilePath = "C:/eclipse-jee-luna-R-win32-x86_64/eclipse/ControlDemo.xlsx";
+		String excelFilePath = "ControlDemo.xlsx"; //C:/eclipse-jee-luna-R-win32-x86_64/eclipse/ControlDemo.xlsx
         
         try {
             FileInputStream inputStream = new FileInputStream(new File(excelFilePath));

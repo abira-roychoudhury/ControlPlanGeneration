@@ -93,13 +93,15 @@ public class Processing extends HttpServlet {
 		
 		
 		//Calling Python API
-		//JSONObject bubbleData = GetRequestTest.pythonApiCall(imgFile.getAbsolutePath());
-		String bubbleDataString = "{'numberOfBubbles' : 7}";
-		JSONObject bubbleData = new JSONObject(bubbleDataString);
+		JSONObject bubbleData = GetRequestTest.pythonApiCall(imgFile.getAbsolutePath());
+		//String bubbleDataString = "{'numberOfBubbles' : 7}";
+		//JSONObject bubbleData = new JSONObject(bubbleDataString);
 		int numberOfBubbles = bubbleData.getInt("numberOfBubbles");
 		System.out.println("numberOfBubbles : "+numberOfBubbles);
-		
+
 		request.setAttribute("numberOfBubbles", numberOfBubbles);
+		
+		request.setAttribute("coordinatesOfBubbles",bubbleData.get("coordinatesOfBubbles"));
 		
 		//uploading image completed logging upload image
 		timelogging.fileDesc(fileName, fileType);
